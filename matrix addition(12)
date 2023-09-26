@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+public class MatrixAddition {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input the dimensions of the matrices
+        System.out.print("Enter the number of rows: ");
+        int rows = scanner.nextInt();
+        System.out.print("Enter the number of columns: ");
+        int cols = scanner.nextInt();
+
+        // Input matrix elements
+        int[][] mat1 = new int[rows][cols];
+        int[][] mat2 = new int[rows][cols];
+
+        System.out.println("Enter elements for matrix 1:");
+        inputMatrix(scanner, mat1);
+
+        System.out.println("Enter elements for matrix 2:");
+        inputMatrix(scanner, mat2);
+
+        // Add matrices
+        int[][] sum = addMatrices(mat1, mat2);
+
+        // Print the result
+        System.out.println("Matrix Sum:");
+        printMatrix(sum);
+
+        scanner.close();
+    }
+
+    public static void inputMatrix(Scanner scanner, int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                matrix[i][j] = scanner.nextInt();
+            }
+        }
+    }
+
+    public static int[][] addMatrices(int[][] mat1, int[][] mat2) {
+        int rows = mat1.length;
+        int cols = mat1[0].length;
+
+        int[][] sum = new int[rows][cols];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                sum[i][j] = mat1[i][j] + mat2[i][j];
+            }
+        }
+
+        return sum;
+    }
+
+    public static void printMatrix(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
