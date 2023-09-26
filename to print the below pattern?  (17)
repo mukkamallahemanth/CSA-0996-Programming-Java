@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class PascalTrianglePattern {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of rows: ");
+        int numRows = scanner.nextInt();
+
+        printPascalTriangle(numRows);
+
+        scanner.close();
+    }
+
+    public static void printPascalTriangle(int numRows) {
+        for (int i = 0; i < numRows; i++) {
+            // Print spaces
+            for (int j = 0; j < numRows - i - 1; j++) {
+                System.out.print("  ");
+            }
+
+            // Calculate and print the values in the current row
+            int currentValue = 1;
+            for (int j = 0; j <= i; j++) {
+                System.out.print(String.format("%-4d", currentValue) + " ");
+                currentValue = currentValue * (i - j) / (j + 1);
+            }
+
+            // Move to the next line
+            System.out.println();
+        }
+    }
+}
