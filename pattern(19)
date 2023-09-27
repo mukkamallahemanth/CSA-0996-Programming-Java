@@ -1,0 +1,19 @@
+def print_pattern(num, max_print):
+    # Print the upper part of the pattern
+    for i in range(1, max_print + 1):
+        for j in range(i):
+            print(num, end='')
+        print()
+
+    # Print the lower part of the pattern
+    for i in range(max_print - 1, 0, -1):
+        for j in range(i):
+            print(num, end='')
+        print()
+
+# Get user input
+num = int(input("Enter the number to be printed: "))
+max_print = int(input("Max Number of times to be printed: "))
+
+# Call the function to print the pattern
+print_pattern(num, max_print)
